@@ -1,0 +1,152 @@
+tabs-page{
+    /* custom tabs icons general class */
+    .tabbar, .tabs-ios, .tabs-md , .tabs-wp{
+        .tab-button-icon {
+            background-repeat:no-repeat;
+            background-position:center;
+            height:20px;
+            width:20px;
+            background-size:contain;
+            -webkit-background-size: contain;
+            -moz-background-size: contain;
+            -o-background-size: contain;
+            
+            &:before {
+                display:none;
+            }
+        }
+    }
+    /* tabs styles */
+    
+    .tabs-md, .tabs-ios  {
+        .tabbar{
+           background-color: #EFEFEF;
+            height: 76px;
+            border-top: 0;
+            justify-content: space-around;
+            &::after{
+                content: '';
+                position: absolute;
+                height: 56px;
+                width: 95%;
+                border-radius: 25px 25px 25px 25px;
+                background: rgba(255,255,255,1);
+                // background:blue;
+                top: 50%;
+                box-shadow: 0px 0px 10px -5px;
+                margin-top: -28px;
+                z-index: -1;
+                left: 50%;
+                margin-left: -47.2%;
+            }
+        }
+    }
+    .tabs-md[tabsLayout=icon-hide] .tab-button, .tabs-md[tabsLayout=title-hide] .tab-button, .tabs-md .tab-button.icon-only, .tabs-md .tab-button.has-title-only {
+        padding: 0px;
+    }
+    .tabs-md, .tabs-ios {
+       
+        .tab-button[aria-selected=false] {
+            // border: 5px solid color($colors, light);
+            max-height: 66px;
+            max-width: 56px;
+        }
+        .tab-button[aria-selected=true] {
+            color: color($colors, dark);
+            background-color: color($colors, primary);
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            max-height: 46px;
+            max-width: 46px;
+            // border: 5px solid color($colors, dark);
+            border-radius: 50%;
+            font-weight: bold;
+            animation: tabs 200ms linear;
+        }
+        .tab-button[aria-selected=true] .tab-button-icon {
+            color: color($colors, dark);
+            -webkit-transform: translate3d(0, 0px, 0);
+            transform: translate3d(0, 0px, 0);
+        }
+        .tab-button {
+            min-height: 5.6rem;
+            font-weight: normal;
+            color: color($colors, dark);
+            padding: 0;
+        }
+        .tab-button-icon {
+            margin-top: 1px;
+            min-width: 3.5rem;
+            font-size: 3.5rem;
+            color: color($colors, dark);
+            -webkit-transition: -webkit-transform 0.3s ease-in-out;
+            transition: -webkit-transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+            -webkit-transform-origin: 50% 150%;
+            transform-origin: 50% 150%;
+        }
+    }
+    /* custom tabs icons for IOS */
+    .tabs-ios, .tabs-md {
+        a[aria-selected=false] {
+            .tab-button-icon[ng-reflect-name=tandas],
+            .tab-button-icon[aria-label="tandas"] {
+                background-image: url(../assets/imgs/tandas.svg);
+                
+            }
+            .tab-button-icon[ng-reflect-name=huacas],
+            .tab-button-icon[aria-label="huacas"] {
+                background-image: url(../assets/imgs/huacas.svg);
+                
+            }
+            .tab-button-icon[ng-reflect-name=options],
+            .tab-button-icon[aria-label="options"] {
+                background-image: url(../assets/imgs/options.svg);
+                
+            }
+            .tab-button-icon[ng-reflect-name=home],
+            .tab-button-icon[aria-label="home"] {
+                background-image: url(../assets/imgs/home.svg);
+               
+            }
+            
+        }
+        a[aria-selected=true] {
+            .tab-button-icon[ng-reflect-name=tandas],
+            .tab-button-icon[aria-label="tandas"] {
+                background-image: url(../assets/imgs/tandasWhite.svg);
+                
+            }
+            .tab-button-icon[ng-reflect-name=huacas],
+            .tab-button-icon[aria-label="huacas"] {
+                background-image: url(../assets/imgs/huacasWhite.svg);
+                
+            }
+            .tab-button-icon[ng-reflect-name=options],
+            .tab-button-icon[aria-label="options"] {
+                background-image: url(../assets/imgs/optionsWhite.svg);
+                
+            }
+            .tab-button-icon[ng-reflect-name=home],
+            .tab-button-icon[aria-label="home"] {
+                background-image: url(../assets/imgs/homeWhite.svg);
+               
+            }
+        }
+    }
+   
+      
+    /* custom tabs icons for Android */
+    .ios ion-nav>.ion-page>.toolbar.statusbar-padding:first-child,
+    .ios ion-nav>.ion-page>ion-header>.toolbar.statusbar-padding:first-child,
+    .ios ion-tab>.ion-page>.toolbar.statusbar-padding:first-child,
+    .ios ion-tab>.ion-page>ion-header>.toolbar.statusbar-padding:first-child,
+    .ios ion-tabs>.ion-page.tab-subpage>ion-header>.toolbar.statusbar-padding:first-child,
+    .ios ion-menu>.menu-inner>.toolbar.statusbar-padding:first-child,
+    .ios ion-menu>.menu-inner>ion-header>.toolbar.statusbar-padding:first-child{
+        padding-top: 0px;
+    }
+
+}
