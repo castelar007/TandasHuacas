@@ -14,3 +14,48 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+@font-face {
+    font-family: 'neo_sansregular';
+    src: url('/assets/webFontKit/neosan-webfont.woff2') format('woff2'),
+         url('/assets/webFontKit/neosan-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'neo_sansbold';
+    src: url('/assets/webFontKit/neosanbol-webfont.woff2') format('woff2'),
+         url('/assets/webFontKit/neosanbol-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'sf_compact_displaybold';
+    src: url('/assets/webFontKit/sfcompactdisplay-bold-webfont.woff2') format('woff2'),
+         url('/assets/webFontKit/sfcompactdisplay-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'sf_compact_displaylight';
+    src: url('/assets/webFontKit/sfcompactdisplay-light-webfont.woff2') format('woff2'),
+         url('/assets/webFontKit/sfcompactdisplay-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

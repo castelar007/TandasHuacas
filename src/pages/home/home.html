@@ -1,17 +1,26 @@
-<ion-content >
+<ion-content class="main-content">
   <div class="opacity"></div>
-  <img src="assets/imgs/wp.jpg" alt="">
-  <div class="headerHome">
-    <div class="contadores">
-      <div class="contadorHuaca">
-        <div class="inner"></div>
-        <div></div>
-      </div>
-      <div class="contadoTandas">
-        <div></div>
-        <div></div>
+  <img class="bgImg" src="assets/imgs/wp.jpg" alt="">
+  <div class="innerContainer">
+    <div class="headerHome">
+      <div class="calendar">
+        <img src="assets/imgs/calendar.svg" alt="">
       </div>
     </div>
-    <div></div>
+    <div class="contadores" [style.transform] ="'translateY(-'+ this.sliderHeight +'px)'">
+      <div class="contadorHuacas">
+        <div class="innerBox">10</div>
+        <div class="innerLabel">Huacas</div>
+      </div>
+      <div class="contadorTandas" >
+        <div class="innerBox">10</div>
+        <div class="innerLabel">Tandas</div>
+      </div>
+    </div>
+    <div class="sliderContainer ">
+      <div class="roundContainer" *ngFor='let item of list'>
+        {{item}}
+      </div>
+    </div>
   </div>
 </ion-content>

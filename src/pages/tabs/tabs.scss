@@ -1,4 +1,10 @@
 tabs-page{
+    .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
+        top: 0px;
+        bottom: auto;
+        background-position: left 0 top 0;
+        height: 0px;
+    }
     /* custom tabs icons general class */
     .tabbar, .tabs-ios, .tabs-md , .tabs-wp{
         .tab-button-icon {
@@ -20,7 +26,7 @@ tabs-page{
     
     .tabs-md, .tabs-ios  {
         .tabbar{
-           background-color: #EFEFEF;
+           background-color: rgba(0, 0, 0, 0);
             height: 76px;
             border-top: 0;
             justify-content: space-around;
@@ -47,13 +53,8 @@ tabs-page{
     .tabs-md, .tabs-ios {
        
         .tab-button[aria-selected=false] {
-            // border: 5px solid color($colors, light);
-            max-height: 66px;
-            max-width: 56px;
-        }
-        .tab-button[aria-selected=true] {
             color: color($colors, dark);
-            background-color: color($colors, primary);
+            background-color: white;
             padding: 0;
             height: 100%;
             width: 100%;
@@ -62,18 +63,30 @@ tabs-page{
             // border: 5px solid color($colors, dark);
             border-radius: 50%;
             font-weight: bold;
+            // animation: tabs 200ms linear;
+        }
+        .tab-button[aria-selected=true] {
+            color: color($colors, dark);
+            background-color: color($colors, primary);
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            max-height: 46px ;
+            max-width: 46px;
+            // border: 5px solid color($colors, dark);
+            border-radius: 50%;
+            font-weight: bold;
             animation: tabs 200ms linear;
         }
-        .tab-button[aria-selected=true] .tab-button-icon {
-            color: color($colors, dark);
-            -webkit-transform: translate3d(0, 0px, 0);
-            transform: translate3d(0, 0px, 0);
-        }
+         
         .tab-button {
-            min-height: 5.6rem;
+            min-height: 4.6rem;
             font-weight: normal;
             color: color($colors, dark);
             padding: 0;
+        }
+        .tabs-md .tab-button{
+            min-height: 4.6rem;
         }
         .tab-button-icon {
             margin-top: 1px;

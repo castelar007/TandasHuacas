@@ -1,21 +1,185 @@
 page-home {
-    .scroll-content{
-        overflow-y: hidden;
-    }
-    img{
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
+  font-family: 'neo_sansregular';
+
+  .scroll-content {
+    overflow-y: hidden;
+    margin-bottom: 0px !important;
+
+
+  }
+
+  .bgImg {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+
+  .opacity {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 111;
+  }
+
+  .main-content {
+    .innerContainer {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 15px;
+      padding-bottom: 76px;
+
+      .headerHome {
+        height: 10%;
+        width: 95%;
+        z-index: 111111;
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        // margin-right: 15px;
+        align-items: center;
+
+        .calendar {
+          height: 46px;
+          width: 46px;
+          position: relative;
+          z-index: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            height: 20px;
+            width: 20px;
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            height: 46px;
+            width: 46px;
+            background-color: rgba(255, 255, 255, 0.5);
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            z-index: -1;
+            margin-top: -23px;
+            margin-left: -23px;
+          }
+        }
+      }
+
+      .contadores {
+        height: 116px;
+        width: 95%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        z-index: 1111;
+
+        .contadorTandas {
+          width: 116px;
+          height: 100%;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+
+          .innerBox {
+            background-color: rgba($color: white, $alpha: 0.3);
+            width: 86px;
+            height: 86px;
+            position: relative;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 6rem;
+            // font-weight: bold;
+
+          }
+
+          .innerLabel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2rem;
+            // font-weight: bold;
+          }
+        }
+
+        .contadorHuacas {
+          width: 30%;
+          height: 100%;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+
+          .innerBox {
+            background-color: color($colors, primary);
+            width: 86px;
+            height: 86px;
+            position: relative;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 6rem;
+            // font-weight: bold;
+          }
+
+          .innerLabel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2rem;
+            // font-weight: bold;
+          }
+        }
+
+      }
+
+      .sliderContainer {
+        background-color: #EFEFEF;
         position: absolute;
-    }
-    .opacity{
-        background-image:  linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
-        position: absolute;
-        height: 100%;
+        bottom: 0px;
         width: 100%;
-        z-index: 111;
+        min-height: 76px;
+        z-index: 1111;
+        border-radius: 25px 25px 0px 0px;
+        display: flex;
+        padding: 15px 15px 76px 15px;
+        justify-content: space-around;
+        flex-wrap: wrap-reverse;
+
+        // transform: translateY(76px);
+        .roundContainer{
+            height: 36px;
+            width: 36px;
+            margin: 10px;
+            background: cadetblue;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+      }
     }
-    .headerHome{
-        
-    }
+  }
+
+
 }
