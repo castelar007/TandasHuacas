@@ -10,6 +10,9 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { NgCalendarModule } from 'ionic2-calendar';
+import { CalendarPage } from '../pages/calendar/calendar';
+
 
 @NgModule({
   declarations: [
@@ -17,9 +20,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    CalendarPage
   ],
   imports: [
+    
+    NgCalendarModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
@@ -29,7 +35,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    CalendarPage
   ],
   providers: [
     StatusBar,

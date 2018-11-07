@@ -1,0 +1,21 @@
+<ion-content class="main-content">
+ 
+
+  <div class="innerContainer">
+    <div class="headerHome">
+        {{ viewTitle }}
+      <div class="calendar" (click)='this.navCtrl.pop()'>
+        <ion-icon style="color: white; font-size:56px;" name='close'  ></ion-icon>
+      </div>
+    </div>
+    <calendar [eventSource]="eventSource"
+        [calendarMode]="calendar.mode"
+        [currentDate]="calendar.currentDate"
+        (onEventSelected)="onEventSelected($event)"
+        (onTitleChanged)="onViewTitleChanged($event)"
+        (onTimeSelected)="onTimeSelected($event)"
+        step="60"
+        class="calendar">
+      </calendar>
+    </div>
+</ion-content>

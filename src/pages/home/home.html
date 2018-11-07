@@ -3,21 +3,30 @@
   <img class="bgImg" src="assets/imgs/wp.jpg" alt="">
   <div class="innerContainer">
     <div class="headerHome">
-      <div class="calendar">
+      <div class="calendar" (click)='presentModal(this.calendarPage)'>
         <img src="assets/imgs/calendar.svg" alt="">
       </div>
     </div>
     <div class="contadores" [style.transform] ="'translateY(-'+ this.sliderHeight +'px)'">
-      <div class="contadorHuacas">
-        <div class="innerBox">10</div>
+      <div class="contadorHuacas" *ngIf='this.huacasCount != 0'>
+        <div class="innerBox">{{this.huacasCount}}</div>
         <div class="innerLabel">Huacas</div>
       </div>
-      <div class="contadorTandas" >
-        <div class="innerBox">10</div>
+      <div class="createHuacas" *ngIf='this.huacasCount == 0'  >
+          <div class="innerBox" [style.background-color]='"#D7272D"'><span>Crear </span></div>
+          <div class="innerLabel" > <span>Huacas</span> </div>
+      </div>
+      <div class="contadorTandas" *ngIf='this.tandasCount != 0'>
+        <div class="innerBox">{{this.tandasCount}}</div>
         <div class="innerLabel">Tandas</div>
       </div>
+      <div class="createTandas" *ngIf='this.tandasCount == 0'>
+          <div class="innerBox" [style.background-color]='"rgba(255,255,255,0.3)"'><span>Crear </span></div>
+        <div class="innerLabel" > <span> Tandas</span></div>
+      </div>
     </div>
-    <div class="sliderContainer ">
+    
+    <div class="sliderContainer " [class.active]='this.list.length == 0'>
       <div class="roundContainer" *ngFor='let item of list'>
         {{item}}
       </div>
