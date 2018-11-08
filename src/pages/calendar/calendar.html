@@ -8,14 +8,16 @@
         <ion-icon style="color: white; font-size:56px;" name='close'  ></ion-icon>
       </div>
     </div>
-    <calendar [eventSource]="eventSource"
-        [calendarMode]="calendar.mode"
-        [currentDate]="calendar.currentDate"
-        (onEventSelected)="onEventSelected($event)"
-        (onTitleChanged)="onViewTitleChanged($event)"
-        (onTimeSelected)="onTimeSelected($event)"
-        step="60"
-        class="calendar">
-      </calendar>
-    </div>
+  </div>
+  <calendar [eventSource]="eventSource"
+      [calendarMode]="calendar.mode"
+      [currentDate]="calendar.currentDate"
+      (onEventSelected)="onEventSelected($event)"
+      (onTitleChanged)="onViewTitleChanged($event)"
+      (onTimeSelected)="onTimeSelected($event)"
+      step="30"
+      class="calendar"
+      noEventsLabel="Ninguna Huaca o Tanda"
+      autoSelect="false">
+    </calendar>
 </ion-content>

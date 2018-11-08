@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {  NavController, NavParams } from 'ionic-angular';
-
+import * as moment from 'moment';
 @Component({
   selector: 'page-calendar',
   templateUrl: 'calendar.html',
