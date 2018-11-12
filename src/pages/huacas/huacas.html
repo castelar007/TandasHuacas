@@ -1,0 +1,43 @@
+<ion-content class="main-content">
+  <div class="opacity"></div>
+  <img class="bgImg" src="assets/imgs/wp.jpg" alt="">
+  <div class="innerTopContainer">
+    <div class="back">
+        <ion-icon name="md-arrow-back"></ion-icon>
+    </div>
+    <div class="createContainer">
+      <div class="create">
+        <div class="createButton single">
+          <p>
+            <span class="bold">Huaca</span>
+            <span>Compartida</span>
+          </p>
+        </div>
+      </div>
+      <div class="create">
+        <div class="createButton shared">
+          <p>
+            <span class="bold">Ahorro</span>
+            <span>Programado</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="innerBottomContainer">
+    <div class="huacaHeader">
+        <div class="title">
+            <span>TOTAL</span>
+            <span class="amount">L.888,888,888.88</span>
+        </div>
+        <div class="huacaAdd" (click)='presentModal(this.calendarPage)'>
+            <img src="assets/imgs/add.svg" alt="">
+          </div>
+    </div>
+    <ion-scroll scrollY='true'>
+        <div class="huacaGraphContainer"></div>
+        <div class="huacaCounterContainer"></div>
+        <div class="huacaListContainer"></div>
+    </ion-scroll>
+  </div>
+</ion-content>
