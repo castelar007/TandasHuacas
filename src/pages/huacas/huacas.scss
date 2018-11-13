@@ -108,17 +108,18 @@ page-huacas {
       position: absolute;
       z-index: 11111;
       top: 0%;
-      padding-top: 15px;
-      padding-bottom: 76px;
+    //   padding-top: 15px;
+    //   padding-bottom: 76px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
 
       .huacaHeader {
+        padding-top: 15px;  
         align-self: flex-start;
         justify-self: flex-start;
-        height: 15%;
+        height: 12%;
         width: 97.5%;
         background-color: aquamarine;
         z-index: 111111;
@@ -171,34 +172,95 @@ page-huacas {
           }
         }
       }
+      .huacaGraphContainer {
+        // background-color: red;
+        height: 38vh;
+        width: 100%;
+        position: absolute;
+        top: 12%;
+    }
 
-      ion-scroll {
-        height: 85%;
+    .huacaCounterContainer {
+        // background-color: violet;
+        height: 12vh;
         width: 95%;
+        position: absolute;
+        top: calc(12% + 38vh);
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-direction: row;
+        .innerContainer{
+            // background-color: white;
+            height: 80%;
+            width: 45%;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .number{
+                width: calc(35% - 5px);
+                height: 85%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 3rem;
+                margin-right: 5px;
+                
+            }
+            .numberLabel{
+                width: 65%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.7rem;
+                p{
+                    margin: 0px;
+                    .bold{
+                        font-weight: bold;
+                        font-family: 'neo_sansbold';
+                    }
+                }
+
+            }
+            &.huacaCounter{
+                
+                background-color: #EFEFEF;
+            }
+            &.ahorroCounter{
+                .number{
+                    background-color: #EFEFEF;
+                    border-radius: 15px;
+                }
+                background-color: white;
+            }
+        }
+        
+
+    }
+      ion-scroll {
+        height: 88%;
+        width: 100%;
         .scroll-content{
+            
             .scroll-zoom-wrapper{
                 height: 100%;
                 width: 100%;
             }
         }
-        .huacaGraphContainer {
-            background-color: red;
-            height: 50%;
+       
+        .headerScroll{
+            height: 50vh;
             width: 100%;
+            background-color: rgba(0,0,0,0);
+            pointer-events: none;
         }
-
-        .huacaCounterContainer {
-            background-color: violet;
-            height: 20%;
-            width: 100%;
-        
-        }
-
         .huacaListContainer {
-            background-color: wheat;
-            height: 30%;
+            background-color: #EFEFEF;
+            height: 100%;
             width: 100%;
-        
+            border-radius: 25px 25px 0px 0px;
         }
       }
     }

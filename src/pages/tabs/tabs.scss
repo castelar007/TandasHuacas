@@ -1,4 +1,7 @@
 tabs-page{
+    .scroll-content{
+        overflow-y: hidden;
+    }
     .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
         top: 0px;
         bottom: auto;
