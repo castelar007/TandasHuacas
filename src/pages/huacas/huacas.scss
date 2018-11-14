@@ -121,7 +121,7 @@ page-huacas {
         justify-self: flex-start;
         height: 12%;
         width: 97.5%;
-        background-color: aquamarine;
+        // background-color: aquamarine;
         z-index: 111111;
         position: relative;
         display: flex;
@@ -174,10 +174,47 @@ page-huacas {
       }
       .huacaGraphContainer {
         // background-color: red;
+        display: flex;
         height: 38vh;
         width: 100%;
         position: absolute;
         top: 12%;
+        .dona{
+          height: 100%;
+          width: 80%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .imgContainer{
+            height: 32vh;
+            width: 32vh;
+            position: absolute;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px white solid;
+            img{
+              object-fit: cover;
+              height: 100%;
+              width: 100%;
+            }
+          }
+          canvas{
+            
+          }
+        }
+        .donaLabel{
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          position: relative;
+          left: -10vw;
+          // bottom: 5vh;
+          p{
+            .title{
+              font-family: 'neo_sansbold';
+            }
+          }
+        }
     }
 
     .huacaCounterContainer {
@@ -239,7 +276,30 @@ page-huacas {
         
 
     }
+    .thumbnailContainer{
+      height: calc(50vh - (12% + 76px));
+      position: absolute;
+      top: calc(12% + 50vh);
+      width: 100%;
+      z-index: 11111;
+      .allRoundContainer{
+      justify-content: space-around;
+        flex-wrap: wrap-reverse;
+      .roundContainer{
+        height: 36px;
+        width: 36px;
+        margin: 10px;
+        background: cadetblue;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+  }
+    }
       ion-scroll {
+        pointer-events: none;
         height: 88%;
         width: 100%;
         .scroll-content{

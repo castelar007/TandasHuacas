@@ -36,10 +36,17 @@
     </div>
     <div class="huacaGraphContainer">
       <div class="dona">
-        <canvas style=" height: 100%; position: relative;" #doughnutCanvas></canvas>
+        <div class="imgContainer">
+          <img src="assets/imgs/wp2.jpeg" alt="">
+        </div>
+        <canvas style="height: 100%; " #doughnutCanvas></canvas>
       </div>
+     
       <div class="donaLabel">
-
+          <p>
+            <span class="title">Huaca Name</span>
+            <span>L.888,888.88</span>
+          </p>
       </div>
     </div>
     <div class="huacaCounterContainer">
@@ -60,6 +67,13 @@
               <span class="bold">Huaca</span>
               <span>Compartida</span>
             </p>
+          </div>
+        </div>
+    </div>
+    <div class="thumbnailContainer">
+      <div class="allRoundContainer">
+        <div class="roundContainer" *ngFor='let item of list'>
+            {{item}}
           </div>
         </div>
     </div>

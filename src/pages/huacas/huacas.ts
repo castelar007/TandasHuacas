@@ -15,7 +15,7 @@ import { Chart } from 'chart.js';
 export class HuacasPage {
   @ViewChild('doughnutCanvas') doughnutCanvas;
   doughnutChart: any;
-  
+  list = [1,2,3,4,5,6,7,8 ,9 ,10];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -47,7 +47,7 @@ export class HuacasPage {
           }]
       },
       options: {
-        responsive: true, 
+        responsive: false, 
         cutoutPercentage: 48, 
         legend:{
           display:false
