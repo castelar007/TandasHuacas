@@ -2,7 +2,7 @@
   <div class="opacity"></div>
   <img class="bgImg" src="assets/imgs/wp.jpg" alt="">
   <div class="innerTopContainer">
-    <div class="back">
+    <div class="back" (click)=goBack()>
         <ion-icon name="md-arrow-back"></ion-icon>
     </div>
     <div class="createContainer">
@@ -24,13 +24,13 @@
       </div>
     </div>
   </div>
-  <div class="innerBottomContainer">
+  <div class="innerBottomContainer" [class.active]='isAddHuacaActive'>
     <div class="huacaHeader">
         <div class="title">
             <span>TOTAL</span>
             <span class="amount">L.888,888,888.88</span>
         </div>
-        <div class="huacaAdd" (click)='presentModal(this.calendarPage)'>
+        <div class="huacaAdd" (click)='addHuaca()'>
             <img src="assets/imgs/add.svg" alt="">
           </div>
     </div>
@@ -39,7 +39,7 @@
         <div class="imgContainer">
           <img src="assets/imgs/wp2.jpeg" alt="">
         </div>
-        <canvas style="height: 100%; " #doughnutCanvas></canvas>
+        <canvas id="doughnutCanvas" style="height: 100%; " #doughnutCanvas (click)='onClick($event)'></canvas>
       </div>
      
       <div class="donaLabel">
@@ -71,15 +71,19 @@
         </div>
     </div>
     <div class="thumbnailContainer">
+        <div class="iconContainer">
+            <ion-icon  name='ios-arrow-up'></ion-icon>
+         </div>
       <div class="allRoundContainer">
-        <div class="roundContainer" *ngFor='let item of list'>
-            {{item}}
+        <div class="roundContainer" *ngFor='let item of list' (click)='roundClick(item.position)'>
+            <img [src]="item.img" alt="">
           </div>
         </div>
+            
     </div>
-    <ion-scroll scrollY='true'>
+    <!-- <ion-scroll scrollY='true'>
         <div class="headerScroll"></div>
         <div class="huacaListContainer"></div>
-    </ion-scroll>
+    </ion-scroll> -->
   </div>
 </ion-content>
