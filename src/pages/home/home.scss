@@ -201,13 +201,13 @@ page-home {
         flex-wrap: wrap-reverse;
         &.active{
             transform: translateY(76px);
-            padding: 0;
+            padding: 0; 
         }
         // transform: translateY(76px);
         .roundContainer{
-            height: 36px;
-            width: 36px;
-            margin: 10px;
+            height: 15vw;
+            width: 15vw;
+            margin: 5px;
             background: cadetblue;
             border-radius: 50%;
             display: flex;

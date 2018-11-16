@@ -45,7 +45,7 @@ export class HuacasPage {
           labels: ["14002", "14562", "14302", "12502"],
           datasets: [{
               
-              data: [5000, 14000, 5560, 1600],
+              data: [500, 1400, 5560, 1600],
               backgroundColor: [
                 "rgba(228, 59, 40, 0.8)",
                 "rgba(128, 150, 149, 0.8)",

@@ -310,14 +310,17 @@ page-huacas {
         padding-bottom: 76px;
 
         .allRoundContainer {
+          height: calc(100% - 36px);
+          width: 100%;
           justify-content: center;
           flex-wrap: wrap-reverse;
           display: flex;
-
+          justify-content: center;
+          align-items: center;
           .roundContainer {
-            height: 12vw;
-            width: 12vw;
-            margin: 10px;
+            height: 15vw;
+            width: 15vw;
+            margin: 5px;
             background: cadetblue;
             border-radius: 50%;
             display: flex;
@@ -334,7 +337,12 @@ page-huacas {
 
         .iconContainer {
           // padding: 15px;
+          height: 36px;
+          width: 36px;
           font-size: 1.8rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
       }
 
