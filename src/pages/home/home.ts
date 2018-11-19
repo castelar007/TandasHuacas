@@ -8,8 +8,8 @@ import { CalendarPage } from '../calendar/calendar';
 })
 export class HomePage {
   sliderHeight;
-  list = [1,2,3,4,5,6,7,8 ,9 ,10];
-  // list = [];
+  // list = [1,2,3,4,5,6,7,8 ,9 ,10];
+  list = [1];
   huacasCount = 2 ;
   tandasCount = 0;
   calendarPage =CalendarPage;

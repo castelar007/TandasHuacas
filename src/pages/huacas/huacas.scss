@@ -47,7 +47,8 @@ page-huacas {
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        font-size: 2rem;
+        // font-size: 2rem;
+        @include responsive-font-size(3rem);
       }
 
       .createContainer {
@@ -72,8 +73,8 @@ page-huacas {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-size: 2rem;
-
+            // font-size: 2rem;
+            @include responsive-font-size(3rem);
             //   padding-left: 15px;
             p {
               display: flex;
@@ -308,8 +309,24 @@ page-huacas {
         background-color: #EFEFEF;
         border-radius: 15px 15px 0px 0px;
         padding-bottom: 76px;
-
+        transition: top 400ms;
+        &.active{
+          top: 12%;
+          .allRoundContainer{
+            opacity: 0;
+            pointer-events: none;
+            // display: unset;
+          }
+          .iconContainer{
+            transform: rotate(180deg);
+          } 
+          .huacalistContainer{
+            opacity: 1;
+            pointer-events: all;
+          }
+        }
         .allRoundContainer {
+          transition: opacity 200ms;
           height: calc(100% - 36px);
           width: 100%;
           justify-content: center;
@@ -336,6 +353,7 @@ page-huacas {
         }
 
         .iconContainer {
+          transition: transform 400ms;
           // padding: 15px;
           height: 36px;
           width: 36px;
@@ -343,6 +361,59 @@ page-huacas {
           display: flex;
           justify-content: center;
           align-items: center;
+        }
+        .huacalistContainer{
+            bottom: 76px;
+            height: calc(100% - 112px);
+            width: 100%;
+            transition: opacity 200ms;
+            position:absolute;
+            opacity: 0;
+            pointer-events: none;
+            
+            ion-scroll{
+              height: 100%;
+              width: 100%;
+              
+              .scroll-content{
+                height: 100%;
+                width: 100%;
+                
+              }
+            
+            .huacaElement{
+              height: 20vw;
+              width: 100%;
+              overflow: hidden;
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+              .mainContent{
+                color: #3D3D3D;
+                .titleHuaca{
+                  font-family: 'neo_sansbold';
+                  color: #636363;
+                }
+              }
+              .secondContent{
+                color: #3D3D3D;
+                .amount{
+                  color: #777777;
+                }
+              }
+              .iconContainerList{
+                height: 15vw;
+                width: 15vw;
+                border-radius: 50%;
+                overflow: hidden;
+                img{
+                  height: 100%;
+                  width: 100%;
+                  object-fit: cover;
+                }
+              }
+            }
+          }
         }
       }
 

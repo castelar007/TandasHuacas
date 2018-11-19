@@ -1,0 +1,89 @@
+page-create-huaca {
+
+    .huacaNavBar{
+        padding: 0px;
+    }
+    
+    ion-list{
+            .label-md,.label-ios{
+                margin: 0px;
+            }
+            .item-md .item-button,.item-ios .item-button{
+                height: 4rem;
+            }
+    }
+    .addContactButton{
+        float: right;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+    .back-button{
+        .back-button-icon-ios,.back-button-icon-md {
+            @include responsive-font-size(3rem);
+        }
+        position: absolute;
+        z-index: 10;
+        color: white;
+        @include responsive-font-size(1.5rem);
+    }
+        .toolbar-title{
+            color:white;
+            @include responsive-font-size(1.9rem);
+            font-weight: bold;
+            
+        }
+        
+        ion-grid {
+            .item{
+                @include responsive-font-size(1.5rem);
+            }
+            height: 100%;
+                
+            ion-row {
+                ion-item{
+
+                    height: 100%;
+                }
+              
+            }
+            ion-col.col{
+                
+                padding: 0px;
+                
+            }
+          }
+          .addContactButtonLabel{
+              color: gray;
+              @include responsive-font-size(1.5rem);
+          }
+          .xBadge{
+            border-radius:50%; 
+            position:absolute; 
+            left:8vw;
+            width: 6vw;
+            height: 5vw;
+            font-size: 3vw;
+            @media screen and (min-width: 728px) {
+                
+                   font-size: 15px;
+                }
+            max-width: 22px;
+            max-height: 22px;
+            
+         }
+         ion-content .scroll-content{
+            
+           
+            .button-md,.button-ios{
+                text-transform: none;
+                
+            }
+        }
+          
+        .pickedContactReverse{
+            transition: 0.3s transform;
+            transform: scale(0,0);
+            overflow: hidden;
+        }
+}

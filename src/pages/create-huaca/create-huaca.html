@@ -1,0 +1,130 @@
+<ion-content fullscreen padding>
+    <form [formGroup]="todo" (ngSubmit)="crearHuaca()">
+              <ion-label text-center >Seleccione modo de cálculo</ion-label>
+              <ion-segment [(ngModel)]="tipoCalculo" formControlName='tipoCalculo' assertive>
+              <ion-segment-button  value="monto">
+                Monto
+              </ion-segment-button>
+              <ion-segment-button value="cuota">
+                Cuota
+              </ion-segment-button>
+            </ion-segment>
+         
+  
+      <ion-grid>
+       
+        <!-- Nombre -->
+        <ion-row>
+          <ion-item>
+            <ion-label floating>Nombre de {{huacaName}}</ion-label>
+            <ion-input [(ngModel)]="loginData.UserName" formControlName="username" type="text" required ></ion-input>
+          </ion-item>
+        </ion-row>
+        <div [ngSwitch]="tipoCalculo">
+  
+          <!-- Monto -->
+          <div *ngSwitchCase="'monto'">
+            <ion-row>
+              <ion-item>
+                <ion-label floating>Monto</ion-label>
+                <ion-input clearInput='true' clearOnEdit="true" [(ngModel)]="monto" formControlName="monto" type="number" (ionChange)="onChangeMonto()" required></ion-input>
+              </ion-item>
+            </ion-row>
+            <ion-row>
+              <ion-item>
+                <ion-label color="primary" style="font-weight:bold;">Cuota: {{cuota|currency:'L '}}</ion-label>
+              </ion-item>
+            </ion-row>
+          </div>
+          <!--  Cuota -->
+          <div *ngSwitchCase="'cuota'">
+          <ion-row>
+            <ion-item>
+              <ion-label floating>Cuota</ion-label>
+              <ion-input clearInput='true' clearOnEdit="true" [(ngModel)]="cuota" formControlName="cuota" type="number" (ionChange)="onChangeCuota()" required></ion-input>
+            </ion-item>
+          </ion-row>
+          <ion-row>
+              <ion-item>
+                <ion-label color="primary" style="font-weight:bold;">Monto: {{monto|currency: 'L ' }}</ion-label>
+              </ion-item>
+            </ion-row>
+          </div>
+        </div>
+          <!-- Tiempo / Recurrencia -->
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label floating>Recurrencia</ion-label>
+                <ion-select [(ngModel)]="recurencia.value"  interface="action-sheet" color="primary" formControlName="recurencia" (ionChange)="onChangeRecurrenciaTiempo()" required>
+                  <ion-option  *ngFor='let recurencia of recurencias' value='{{recurencia.value}}' >{{recurencia.holder}}</ion-option>
+                </ion-select>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>Tiempo</ion-label>
+              <ion-select [(ngModel)] = "tiempo" interface="action-sheet" formControlName="tiempo" (ionChange)="onChangeRecurrenciaTiempo()" required>
+                <ion-option *ngFor='let tiempo of tiempos' value='{{tiempo}}'>{{tiempo}} Meses</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <!-- Tipo Debito / Fecha Inicio -->
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>Tipo Débito</ion-label>
+              <ion-select [(ngModel)]="debito" interface="action-sheet" formControlName="debito" required>
+                <ion-option *ngFor='let debito of debitos' value='{{debito}}'>{{debito}}</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>Fecha Inicio</ion-label>
+              <ion-datetime displayFormat="DD MMM YYYY"  min="{{minDate}}"  max={{maxDate}} [(ngModel)]="minDate" formControlName='myDate' required>
+              </ion-datetime>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <!-- Cuenta -->
+        <!-- <ion-row>
+          <ion-item>
+            <ion-label floating>Cuenta a Debitar</ion-label>
+            <ion-select interface="action-sheet"  [(ngModel)]="cuenta" formControlName='cuenta'  required>
+              <ion-option *ngFor='let cuenta of this.bigData.cuentas' value ='{{cuenta.number}}' >{{cuenta.number}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-row> -->
+      </ion-grid>
+  
+      <ion-label *ngIf="(huacaName == 'Huaca Compartida' && listOfContacts.length != 0)" text-center> Participantes</ion-label>
+      <ion-list no-lines *ngIf="huacaName == 'Huaca Compartida'">
+        <ion-item *ngFor='let contacto of listOfContacts' >
+          <button  clear ion-button  (click)='onRemoveContacts(contacto)' type="button" > 
+            <ion-avatar item-start id='boton{{contacto.id}}'>
+              <ion-badge class="xBadge" color='danger'>x</ion-badge>
+              <img [src]="contacto.photos[0].value ">
+            </ion-avatar>
+            <h2>{{contacto.displayName }}</h2>
+          </button>
+        </ion-item>
+        <ion-row>
+          <ion-col col-10 align-self-center>
+            <ion-label class="addContactButtonLabel" text-right >Añadir Contacto</ion-label>
+          </ion-col>
+          <ion-col col-2>
+            <button ion-button   class='addContactButton' (click)='onAddContacts(contactsPage)' type="button">
+              <ion-icon  style="font-weight:bold;" name='add' ></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+      
+      <!-- <button [disabled]="form.invalid || (listOfContacts.length == 0 &&  huacaName == 'Huaca Compartida')" ion-button block round type="submit"> -->
+      <button [disabled]="!todo.valid" ion-button block round type="submit">
+        Crear
+      </button>
+    </form>
+  </ion-content>

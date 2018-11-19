@@ -15,6 +15,10 @@ import { CalendarPage } from '../pages/calendar/calendar';
 import { TandasPage } from '../pages/tandas/tandas';
 import { HuacasPage } from '../pages/huacas/huacas';
 import { SettingsPage } from '../pages/settings/settings';
+import { CreateHuacaPageModule } from '../pages/create-huaca/create-huaca.module';
+import { BaseMethodsProvider } from '../providers/base-methods/base-methods';
+import { HuacasPageModule } from '../pages/huacas/huacas.module';
+import { HuacaDetailPageModule } from '../pages/huaca-detail/huaca-detail.module';
 
 
 @NgModule({
@@ -22,14 +26,16 @@ import { SettingsPage } from '../pages/settings/settings';
     MyApp,
     AboutPage,
     TandasPage,
-    HuacasPage,
+    
     SettingsPage,
     HomePage,
     TabsPage,
     CalendarPage
   ],
   imports: [
-    
+    HuacaDetailPageModule,
+    CreateHuacaPageModule,
+    HuacasPageModule,
     NgCalendarModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
@@ -39,7 +45,7 @@ import { SettingsPage } from '../pages/settings/settings';
     MyApp,
     AboutPage,
     TandasPage,
-    HuacasPage,
+  
     SettingsPage,
     HomePage,
     TabsPage,
@@ -48,7 +54,8 @@ import { SettingsPage } from '../pages/settings/settings';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    BaseMethodsProvider 
   ]
 })
 export class AppModule {}

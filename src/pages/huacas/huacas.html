@@ -3,11 +3,11 @@
   <img class="bgImg" src="assets/imgs/wp.jpg" alt="">
   <div class="innerTopContainer">
     <div class="back" (click)=goBack()>
-        <ion-icon name="md-arrow-back"></ion-icon>
+      <ion-icon name="md-arrow-back"></ion-icon>
     </div>
     <div class="createContainer">
       <div class="create">
-        <div class="createButton single">
+        <div class="createButton single" (click)='this.baseMethod.modaLauncher(createHuaca)'>
           <p>
             <span class="bold">Huaca</span>
             <span>Compartida</span>
@@ -26,13 +26,13 @@
   </div>
   <div class="innerBottomContainer" [class.active]='isAddHuacaActive'>
     <div class="huacaHeader">
-        <div class="title">
-            <span>TOTAL</span>
-            <span class="amount">L.888,888,888.88</span>
-        </div>
-        <div class="huacaAdd" (click)='addHuaca()'>
-            <img src="assets/imgs/add.svg" alt="">
-          </div>
+      <div class="title">
+        <span>TOTAL</span>
+        <span class="amount">L.888,888,888.88</span>
+      </div>
+      <div class="huacaAdd" (click)='addHuaca()'>
+        <img src="assets/imgs/add.svg" alt="">
+      </div>
     </div>
     <div class="huacaGraphContainer">
       <div class="dona">
@@ -41,45 +41,62 @@
         </div>
         <canvas id="doughnutCanvas" style="height: 100%; " #doughnutCanvas (click)='onClick($event)'></canvas>
       </div>
-     
+
       <div class="donaLabel">
-          <p>
-            <span class="title">Huaca Name</span>
-            <span>L.888,888.88</span>
-          </p>
+        <p>
+          <span class="title">Huaca Name</span>
+          <span>L.888,888.88</span>
+        </p>
       </div>
     </div>
     <div class="huacaCounterContainer">
-     
+
       <div class="innerContainer ahorroCounter">
-          <div class="number">88</div>
-          <div class="numberLabel">
-              <p>
-                  <span class="bold">Ahorro</span>
-                  <span>Programado</span>
-                </p>
-          </div>
+        <div class="number">88</div>
+        <div class="numberLabel">
+          <p>
+            <span class="bold">Ahorro</span>
+            <span>Programado</span>
+          </p>
+        </div>
       </div>
       <div class="innerContainer huacaCounter">
-          <div class="number">8</div>
-          <div class="numberLabel">
-            <p>
-              <span class="bold">Huaca</span>
-              <span>Compartida</span>
-            </p>
-          </div>
+        <div class="number">8</div>
+        <div class="numberLabel">
+          <p>
+            <span class="bold">Huaca</span>
+            <span>Compartida</span>
+          </p>
         </div>
+      </div>
     </div>
-    <div class="thumbnailContainer">
-        <div class="iconContainer">
-            <ion-icon  name='ios-arrow-up'></ion-icon>
-         </div>
+    <div class="thumbnailContainer" [class.active]='this.isExpanded'>
+      <div class="iconContainer" (click)='expandContainer()'>
+        <ion-icon name='ios-arrow-up'></ion-icon>
+      </div>
       <div class="allRoundContainer">
         <div class="roundContainer" *ngFor='let item of list' (click)='roundClick(item.position)'>
-            <img [src]="item.img" alt="">
-          </div>
+          <img [src]="item.img" alt="">
         </div>
-            
+      </div>
+      <div class='huacalistContainer'>
+        <ion-scroll scrollY='true'>
+          <div class="huacaElement" *ngFor='let item of list'(click)='this.baseMethod.modaLauncher(huacaDetail)'>
+           
+            <div class="iconContainerList">
+              <img [src]="item.img" alt="">
+            </div>
+            <div class="mainContent">
+              <div class="titleHuaca">Huaca Name </div>
+              <div>L.888,888,888.88</div>
+            </div>
+            <div class="secondContent">
+              <div>Participantes: 88</div>
+              <div class="amount">L.88,888.88</div>
+            </div>
+          </div>
+        </ion-scroll>
+      </div>
     </div>
     <!-- <ion-scroll scrollY='true'>
         <div class="headerScroll"></div>

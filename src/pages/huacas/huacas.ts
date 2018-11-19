@@ -1,6 +1,9 @@
 import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Chart } from 'chart.js';
+import { BaseMethodsProvider } from '../../providers/base-methods/base-methods';
+import { CreateHuacaPage } from '../create-huaca/create-huaca';
+import { HuacaDetailPage } from '../huaca-detail/huaca-detail';
 /**
  * Generated class for the HuacasPage page.
  *
@@ -17,6 +20,9 @@ export class HuacasPage {
   doughnutChart: any;
   listChartElements :any;
   isAddHuacaActive = false;
+  createHuaca = CreateHuacaPage;
+  huacaDetail = HuacaDetailPage;
+  isExpanded = false;
   // list = [1,2,3,4,5,6,7,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8];
   list = [
           {position:0,name:'1',img:'assets/imgs/1.jpg'},
@@ -33,7 +39,7 @@ export class HuacasPage {
 
   ];
     
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public baseMethod:BaseMethodsProvider) {
   }
 
   ionViewWillLoad() {
@@ -120,5 +126,8 @@ export class HuacasPage {
       }
       goBack(){
         this.isAddHuacaActive = false;
+      }
+      expandContainer(){
+        this.isExpanded = !this.isExpanded;
       }
 }
