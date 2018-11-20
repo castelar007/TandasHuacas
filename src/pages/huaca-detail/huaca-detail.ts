@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'huaca-detail.html',
 })
 export class HuacaDetailPage {
-
+  list=[11,22,33,44,55,11,22,33,44,55];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
