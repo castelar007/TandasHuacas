@@ -1,6 +1,13 @@
 page-huacas {
   font-family: 'neo_sansregular';
-
+  @keyframes opacityTrans {
+    0%{
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+    }
+  }
   .scroll-content {
     overflow-y: hidden;
     margin-bottom: 0px !important;
@@ -188,7 +195,7 @@ page-huacas {
 
         .dona {
           height: 100%;
-          width: 80%;
+          width: 75%;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -200,7 +207,10 @@ page-huacas {
             border-radius: 50%;
             overflow: hidden;
             border: 2px white solid;
-
+            &.old{
+              opacity: 0;
+              animation: opacityTrans 300ms ease-in-out;
+            }
             img {
               object-fit: cover;
               height: 100%;
@@ -213,16 +223,24 @@ page-huacas {
 
         .donaLabel {
           display: flex;
-          justify-content: center;
-          align-items: flex-end;
+          justify-content: flex-end;
+          align-items: center;
           position: relative;
           left: -10vw;
-
-          // bottom: 5vh;
-          p {
-            .title {
-              font-family: 'neo_sansbold';
-            }
+          flex-direction: column;
+          width: 25%;
+          height: 95%;
+          .title {
+            font-family: 'neo_sansbold';
+            @include rfs(1.2rem);
+          }
+          span{
+            @include rfs(2rem);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            text-align: end;
           }
         }
       }
@@ -335,6 +353,7 @@ page-huacas {
           justify-content: center;
           align-items: center;
           .roundContainer {
+            position: relative;
             height: 15vw;
             width: 15vw;
             margin: 5px;
@@ -347,6 +366,12 @@ page-huacas {
             img{
               object-fit: cover;
               height: 100%;
+              width: 100%;
+            }
+            .opacityRoundContainer{
+              // background-color: rgba(255,0,0,0.5);
+              height: 100%;
+              position: absolute;
               width: 100%;
             }
           }

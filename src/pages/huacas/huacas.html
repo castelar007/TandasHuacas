@@ -27,7 +27,7 @@
   <div class="innerBottomContainer" [class.active]='isAddHuacaActive'>
     <div class="huacaHeader">
       <div class="title">
-        <span>TOTAL</span>
+        <span>TOTAL HUACAS</span>
         <span class="amount">L.888,888,888.88</span>
       </div>
       <div class="huacaAdd" (click)='addHuaca()'>
@@ -36,17 +36,21 @@
     </div>
     <div class="huacaGraphContainer">
       <div class="dona">
-        <div class="imgContainer">
-          <img src="assets/imgs/wp2.jpeg" alt="">
+        <div class="imgContainer" >
+          <img src="{{this.nuevaSelectedHuaca?.img}}" alt="">
+        </div>
+        <!-- <div id='oldHuaca' class="imgContainer animated  fadeOut"> -->
+        <div id='oldHuaca' class="imgContainer old">
+          <img src="{{this.viejaSelectedHuaca?.img}}" alt="">
         </div>
         <canvas id="doughnutCanvas" style="height: 100%; " #doughnutCanvas (click)='onClick($event)'></canvas>
       </div>
 
       <div class="donaLabel">
-        <p>
-          <span class="title">Huaca Name</span>
-          <span>L.888,888.88</span>
-        </p>
+       
+          <span class="title">{{ this.nuevaSelectedHuaca?.name}}</span>
+          <span>{{ this.nuevaSelectedHuaca?.huacaStatus|currency:'L '}}</span>
+        
       </div>
     </div>
     <div class="huacaCounterContainer">
@@ -75,13 +79,14 @@
         <ion-icon name='ios-arrow-up'></ion-icon>
       </div>
       <div class="allRoundContainer">
-        <div class="roundContainer" *ngFor='let item of list' (click)='roundClick(item.position)'>
+        <div class="roundContainer" *ngFor='let item of list' (click)='roundClick(item)'>
+          <div [class.opacityRoundContainer]='item.isActive' [style.background-color]="item.color"></div>
           <img [src]="item.img" alt="">
         </div>
       </div>
       <div class='huacalistContainer'>
         <ion-scroll scrollY='true'>
-          <div class="huacaElement" *ngFor='let item of list'(click)='this.baseMethod.modaLauncher(huacaDetail)'>
+          <div class="huacaElement" *ngFor='let item of list'(click)='this.baseMethod.modaLauncher(huacaDetail,item)'>
            
             <div class="iconContainerList">
               <img [src]="item.img" alt="">

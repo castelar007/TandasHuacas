@@ -1,18 +1,55 @@
-<ion-content class="mainContainer">
-  <div class="headerContainer"></div>
+<ion-content class="mainContainer" [style.background-image]="'url('+ this.huaca?.img +')'">
+  <div class="headerContainer">
+    <div class="topHeader">
+        <div class="back" (click)='this.navCtrl.pop()'>
+            <ion-icon name="md-arrow-back"></ion-icon>
+          </div>
+          <div class="settings">
+            <img src="assets/imgs/settings.svg" alt="">
+          </div>
+    </div>
+    <div class="bottomHeader">
+      <div class="bottom left">
+        <span class="title">Nombre Huaca</span>
+        <span> L.888,888,88.88</span>
+      </div>
+      <div class="bottom right">
+          <span class="title">Recurrencia</span>
+          <span>L.888,888.88</span>
+      </div>
+    </div>
+    <div class="dateContainer">
+        <div class="year">
+           2019
+        </div>
+        <div class="day">
+          31
+        </div>
+        <div class="month">
+          Diciembre
+        </div>
+    </div>
+    
+  </div>
   <div class="innerContainer">
     <div class="header">
       <ion-scroll scrollX='true'>
           <div class="contactContainer" *ngFor="let item of list">
-            <img src="assets/imgs/{{item}}.jpg" alt="">
+            <img src="assets/imgs/{{item.img}}.jpg" alt="">
+            <div class="contactName">{{item.name}}</div>
           </div>
       </ion-scroll>
-      <div class="contactNumber">Participantes:{{this.list.length}}</div>
+     
     </div>
     <div class="body">
+      <div class="contactNumber">Participantes:{{this.list.length}}</div>
       <div class="circleContainer">
         <div class="circle">
-          <div class="wave"></div>
+          <div class="circleLabel">
+            <span> L.8,888,888.88 </span>
+            <span> L.8,888.88 </span>
+          </div>
+          <div class="wave" [style.background-image]="'url('+ this.huaca?.img +') ' "></div>
         </div>
       </div>
       <div class="huacaData">

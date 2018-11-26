@@ -15,11 +15,11 @@ export class BaseMethodsProvider {
   constructor(public modalCtrl: ModalController) {
     console.log('Hello BaseMethodsProvider Provider');
   }
-  modaLauncher(item){
+  modaLauncher(item,params){
     console.log("click");
     console.log(item);
     
-    let loginPageModal = this.modalCtrl.create(item);
+    let loginPageModal = this.modalCtrl.create(item , { params: params });
     loginPageModal.onDidDismiss(() => {
        
       console.log('dissmiss');

@@ -3,14 +3,129 @@ page-huaca-detail {
         overflow-y: hidden;
     }
   .mainContainer {
-    background-image: url("/assets/imgs/3.jpg");
+    // background-image: url("/assets/imgs/3.jpg");
     background-size: cover;
-
+    
     .headerContainer {
+      background-color: rgba(0,0,0,0.2);
       height: 25%;
       width: 100%;
       position: relative;
-
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      
+      .topHeader{
+        width: 95%;
+        height: 56px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .back {
+          height: 36px;
+          width: 50%;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          // font-size: 2rem;
+          @include responsive-font-size(3rem);
+        }
+        .settings{
+          position: relative;
+          height: 36px;
+          width: 36px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &::after{
+            content:'';
+            position: absolute;
+            background-color: rgba(255,255,255,0.5);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            z-index: 111;
+          }
+          img{
+            height: 2rem;
+            width: 2rem;
+            z-index: 1111;
+          }
+        }
+      }
+      .bottomHeader{
+        display: flex;
+        width: 90%;
+        height: 56px;
+        .bottom{
+          display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 50%;
+            color: white;
+            @include rfs(2rem);
+          &.left{
+            .title{
+              // font-weight: bold;
+              font-weight: 500;
+            }
+            align-items: flex-start;
+          }
+          &.right{
+            .title{
+              color: color($colors, primary);
+              @include rfs(1.8rem);
+              font-weight: 500;
+              // font-weight: bold;
+            }
+            align-items: flex-end;
+          }
+      }
+      }
+      .dateContainer{
+        width: 56px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-70%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color:white;
+        .year{
+          font-weight: 500;
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          height: 26px;
+          width: 100%;
+          @include rfs(1.6rem);
+          color: color($colors,primary);
+        }
+        .month{
+          font-weight: 500;
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          height: 26px;
+          width: 100%;
+          @include rfs(1.6rem);
+        }
+        .day{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 5px;
+          width: 56px;
+          height: 46px;
+          background-color: rgba(255,255,255,0.2);
+          
+          @include rfs(6rem);
+        }
+      }
     }
 
     .innerContainer {
@@ -22,7 +137,7 @@ page-huaca-detail {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      border-radius: 25px 25px 0px 0px;
+      border-radius: 15px 15px 0px 0px;
 
       .header {
         height: 20%;
@@ -33,7 +148,7 @@ page-huaca-detail {
         flex-direction: column;
 
         ion-scroll {
-          height: 70%;
+          height: 100%;
           width: 100%;
           display: flex;
           justify-content: center;
@@ -43,7 +158,7 @@ page-huaca-detail {
             width: 100%;
             display: flex;
             justify-content: flex-start;
-            align-items: flex-end;
+            align-items: center;
 
             .scroll-zoom-wrapper {
               display: flex;
@@ -52,31 +167,25 @@ page-huaca-detail {
                 height: 12vw;
                 width: 12vw;
                 border-radius: 50%;
-                overflow: hidden;
+                // overflow: hidden;
                 margin: 5px 4vw;
-
+                .contactName{
+                  text-align: center;
+                  @include rfs(1rem);
+                  color: #3D3D3D;
+                }
                 img {
                   height: 100%;
                   width: 100%;
                   object-fit: cover;
+                  border-radius: 50%;
                 }
               }
             }
           }
         }
 
-        .contactNumber {
-          height: 30%;
-          width: 100%;
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          padding-left: 15px;
-          color: #636363;
-          @include responsive-font-size(2rem);
-        //   font-family: 'neo_sansbold';
-          font-weight: 500;
-        }
+        
       }
 
       .body {
@@ -85,7 +194,21 @@ page-huaca-detail {
         display: flex;
         justify-content: center;
         align-items: center;
-
+        position: relative;
+        .contactNumber {
+          position: absolute;
+          top: 0;
+          height: 15%;
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          padding-right: 15px;
+          color: #636363;
+          @include responsive-font-size(2rem);
+        //   font-family: 'neo_sansbold';
+          font-weight: 500;
+        }
         .huacaData {
           display: flex;
           flex-direction: column;
@@ -129,13 +252,25 @@ page-huaca-detail {
             border-radius: 50%;
             overflow: hidden;
           }
-
+          .circleLabel{
+            position: absolute;
+            z-index: 11111;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            color: white;
+            @include rfs(2rem);
+            font-weight: 500;
+          }
           .wave {
             position: relative;
             width: 100%;
             height: 100%;
             // background: rgba(255,255,255,1);
-            background-image: url("/assets/imgs/3.jpg");
+            // background-image: url("/assets/imgs/3.jpg");
             background-size: cover;
             border-radius: 50%;
 

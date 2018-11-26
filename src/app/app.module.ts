@@ -19,8 +19,11 @@ import { CreateHuacaPageModule } from '../pages/create-huaca/create-huaca.module
 import { BaseMethodsProvider } from '../providers/base-methods/base-methods';
 import { HuacasPageModule } from '../pages/huacas/huacas.module';
 import { HuacaDetailPageModule } from '../pages/huaca-detail/huaca-detail.module';
-
-
+import { LoginPageModule } from '../pages/login/login.module';
+import { LoaderToastProvider } from '../providers/loader-toast/loader-toast';
+import { HttpProvider } from '../providers/http/http';
+import { HttpClientModule } from '@angular/common/http';
+import { HTTP } from '../../node_modules/@ionic-native/http';
 @NgModule({
   declarations: [
     MyApp,
@@ -33,6 +36,7 @@ import { HuacaDetailPageModule } from '../pages/huaca-detail/huaca-detail.module
     CalendarPage
   ],
   imports: [
+    LoginPageModule,
     HuacaDetailPageModule,
     CreateHuacaPageModule,
     HuacasPageModule,
@@ -52,10 +56,16 @@ import { HuacaDetailPageModule } from '../pages/huaca-detail/huaca-detail.module
     CalendarPage
   ],
   providers: [
+    LoaderToastProvider,
+    HttpProvider,
+    HttpClientModule,    
+    HTTP,
+        
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    BaseMethodsProvider 
+    BaseMethodsProvider,
+    LoaderToastProvider 
   ]
 })
 export class AppModule {}
