@@ -99,12 +99,13 @@ export class HuacasPage {
           var chartData = activePoints[0]['_chart'].config.data;
           var idx = activePoints[0]['_index'];
   
-          var label = chartData.labels[idx];
-          var value = chartData.datasets[0].data[idx];
-  
-          var url = "http://example.com/?label=" + label + "&value=" + value;
-          console.log(url);
-          // alert(url);
+          var huacaId = chartData.labels[idx];
+          // var value = chartData.datasets[0].data[idx];
+          
+          var huaca = this.list.find(function(element) {
+              return element.name == huacaId; 
+          });
+          this.roundClick(huaca);
         }
       }
       roundClick(elementToActive){

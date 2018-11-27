@@ -48,6 +48,7 @@ page-huacas {
       justify-content: space-between;
 
       .back {
+        padding-top: 15px;
         height: 36px;
         width: 90%;
         color: white;
@@ -230,6 +231,7 @@ page-huacas {
           flex-direction: column;
           width: 25%;
           height: 95%;
+          pointer-events: none;
           .title {
             font-family: 'neo_sansbold';
             @include rfs(1.2rem);
@@ -354,9 +356,9 @@ page-huacas {
           align-items: center;
           .roundContainer {
             position: relative;
-            height: 15vw;
-            width: 15vw;
-            margin: 5px;
+            height: 13vw;
+            width: 13vw;
+            margin: 10px;
             background: cadetblue;
             border-radius: 50%;
             display: flex;
@@ -403,12 +405,18 @@ page-huacas {
               .scroll-content{
                 height: 100%;
                 width: 100%;
-                
+                .scroll-zoom-wrapper{
+                  width: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: flex-start;
+                }
               }
             
             .huacaElement{
               height: 20vw;
-              width: 100%;
+              width: 95%;
               overflow: hidden;
               display: flex;
               justify-content: space-around;

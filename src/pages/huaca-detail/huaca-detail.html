@@ -5,7 +5,7 @@
             <ion-icon name="md-arrow-back"></ion-icon>
           </div>
           <div class="settings">
-            <img src="assets/imgs/settings.svg" alt="">
+            <img src="assets/imgs/gear.svg" alt="">
           </div>
     </div>
     <div class="bottomHeader">
@@ -32,8 +32,8 @@
     
   </div>
   <div class="innerContainer">
-    <div class="header">
-      <ion-scroll scrollX='true'>
+    <div class="header activeLeft" id='sideScroll'>
+      <ion-scroll id="headerScroll" #sideScroll scrollX='true'>
           <div class="contactContainer" *ngFor="let item of list">
             <img src="assets/imgs/{{item.img}}.jpg" alt="">
             <div class="contactName">{{item.name}}</div>
