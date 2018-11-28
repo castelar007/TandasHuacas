@@ -422,15 +422,26 @@ page-huacas {
               justify-content: space-around;
               align-items: center;
               .mainContent{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
                 color: #3D3D3D;
+                @include rfs(1.5rem);
                 .titleHuaca{
                   font-family: 'neo_sansbold';
                   color: #636363;
                 }
               }
               .secondContent{
+                display: flex;
                 color: #3D3D3D;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: center;
+                @include rfs(1rem);
                 .amount{
+                  @include rfs(1.5rem);
                   color: #777777;
                 }
               }

@@ -24,6 +24,8 @@ import { LoaderToastProvider } from '../providers/loader-toast/loader-toast';
 import { HttpProvider } from '../providers/http/http';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP } from '../../node_modules/@ionic-native/http';
+import { Calendar2PageModule } from '../pages/calendar2/calendar2.module';
+import { CalendarModule } from "ion2-calendar";
 @NgModule({
   declarations: [
     MyApp,
@@ -36,6 +38,8 @@ import { HTTP } from '../../node_modules/@ionic-native/http';
     CalendarPage
   ],
   imports: [
+    CalendarModule,
+    Calendar2PageModule,
     LoginPageModule,
     HuacaDetailPageModule,
     CreateHuacaPageModule,

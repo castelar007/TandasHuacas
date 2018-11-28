@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController,ModalController } from 'ionic-angular';
 import { CalendarPage } from '../calendar/calendar';
+import { Calendar2Page } from '../calendar2/calendar2';
 
 @Component({
   selector: 'page-home',
@@ -12,6 +13,7 @@ export class HomePage {
   list = [1,2];
   huacasCount = 2 ;
   tandasCount = 0;
+  calendar2page = Calendar2Page;
   calendarPage =CalendarPage;
   constructor(public modalCtrl: ModalController,public navCtrl: NavController) {
 

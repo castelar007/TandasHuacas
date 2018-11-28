@@ -1,0 +1,19 @@
+page-calendar2 {
+    
+    ion-calendar-month .primary button.days-btn small, ion-calendar-month .primary .days .marked{
+        background-color: color($colors,'primary');
+        p{
+            color: white;
+        }
+    }
+    ion-calendar-month .primary .days .on-selected, ion-calendar-month .primary .startSelection button.days-btn, ion-calendar-month .primary .endSelection button.days-btn {
+        background-color: color($colors,'secondary');
+        color: #fff;
+    }
+    ion-calendar-month .primary .days .today  {
+        background-color: gray;
+        p{
+            color: white;
+        }
+    }
+}

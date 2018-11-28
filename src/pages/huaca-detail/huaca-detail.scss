@@ -70,6 +70,7 @@ page-huaca-detail {
           &.left{
             .title{
               // font-weight: bold;
+              @include rfs(1.5rem);
               font-weight: 500;
             }
             align-items: flex-start;
@@ -77,7 +78,7 @@ page-huaca-detail {
           &.right{
             .title{
               color: color($colors, primary);
-              // @include rfs(1.8rem);
+              @include rfs(1.5rem);
               font-weight: 500;
               // font-weight: bold;
             }
@@ -276,7 +277,7 @@ page-huaca-detail {
           align-items: center;
           padding-right: 15px;
           color: #636363;
-          @include responsive-font-size(2rem);
+          @include responsive-font-size(1.2rem);
         //   font-family: 'neo_sansbold';
           font-weight: 500;
         }

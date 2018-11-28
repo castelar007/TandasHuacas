@@ -1,0 +1,11 @@
+<ion-content >
+  <ion-calendar [(ngModel)]="date"
+              (onSelect)="onSelect($event)"
+              [type]="type"
+              [format]="'YYYY-MM-DD'"
+              [options]='this.options'>
+</ion-calendar>
+<div>
+  {{this.labelTerminal}}
+</div>
+</ion-content>

@@ -1,4 +1,114 @@
 page-calendar {
+  
+  .slide-zoom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .monthview-selected {
+    background-color: transparent !important;
+    color: black !important;
+    }
+    .table[_ngcontent-c1] {
+      width:unset;
+      max-width: 100%;
+      background-color: transparent;
+      // height: 80vw;
+  }
+    td.monthview-current {
+    color: white;
+    
+    .calendar-day {
+      background-color: color($colors, 'light') !important;
+    }
+    }
+    .table-bordered[_ngcontent-c1] > thead[_ngcontent-c1] > tr[_ngcontent-c1] > th[_ngcontent-c1], 
+    .table-bordered[_ngcontent-c1] > tbody[_ngcontent-c1] > tr[_ngcontent-c1] > th[_ngcontent-c1], 
+    .table-bordered[_ngcontent-c1] > tfoot[_ngcontent-c1] > tr[_ngcontent-c1] > th[_ngcontent-c1],
+    .table-bordered[_ngcontent-c1] > thead[_ngcontent-c1] > tr[_ngcontent-c1] > td[_ngcontent-c1],
+    .table-bordered[_ngcontent-c1] > tbody[_ngcontent-c1] > tr[_ngcontent-c1] > td[_ngcontent-c1], 
+    .table-bordered[_ngcontent-c1] > tfoot[_ngcontent-c1] > tr[_ngcontent-c1] > td[_ngcontent-c1]{
+      vertical-align: middle;
+      padding: 0px;
+    }
+    .monthview-datetable {
+    border: 0 !important;
+    tr{
+      height: 12vw;
+    }
+    td, th {
+      position: relative;
+      border: 1px solid white !important;
+      // padding: 3px!important;
+      height: 1vw;
+      width: 12vw;
+      // background-color: transparent!important;
+    }
+  }
+  .monthview-current[_ngcontent-c1] {
+    background-color: unset;
+    position: relative;
+    // color: color($colors,'primary') !important;
+      &::before{
+        content: '';
+        z-index: -1;
+        position: absolute;
+        background-color: gray;
+        height: 91%;
+        width: 91%;
+        left: 50%;
+        top: 50%;
+        border-radius: 50%;
+        transform: translate(-50%,-50%);
+      }
+}
+    .monthview-secondary-with-event[_ngcontent-c1] {
+      background-color: unset;
+      
+    }
+    .monthview-primary-with-event[_ngcontent-c1] {
+      background-color: unset;
+      color: white;
+      border-radius: 50%;
+      position: relative;
+      &::after{
+        content: '';
+        z-index: -11;
+        position: absolute;
+        background-color: color($colors, 'primary');
+        height: 90%;
+        width: 90%;
+        left: 50%;
+        top: 50%;
+        border-radius: 50%;
+        transform: translate(-50%,-50%);
+      }
+    }
+    .calendar-day {
+    border-radius: 6px;
+    padding: 3px 5px;
+    
+    &.primary {
+      background-color: color($colors, 'primary');
+      color: white;
+    }
+    
+    &.success {
+      background-color: color($colors, 'primary');
+      color: white;
+    }
+    
+    &.warning {
+      background-color: color($colors, 'danger');
+      color: white;
+    }
+    
+    &.danger {
+      background-color: color($colors, 'danger');
+      color: white;
+    }
+    }
+
     .main-content {
         .innerContainer {
           height: 10%;
