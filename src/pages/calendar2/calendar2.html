@@ -1,11 +1,20 @@
-<ion-content >
-  <ion-calendar [(ngModel)]="date"
-              (onSelect)="onSelect($event)"
-              [type]="type"
-              [format]="'YYYY-MM-DD'"
-              [options]='this.options'>
-</ion-calendar>
-<div>
-  {{this.labelTerminal}}
-</div>
+<ion-content class="main-content">
+  <div class="innerContainer">
+    <div class="headerCalendar">
+      <div class="iconContainer" (click)='this.navCtrl.pop()'>
+        <ion-icon style="color: white; font-size:56px;" name='close'></ion-icon>
+      </div>
+    </div>
+  </div>
+
+    <div class="bodyCalendar">
+      <ion-calendar [(ngModel)]="date" (onSelect)="onSelect($event)" [type]="type" [format]="'YYYY-MM-DD'" [options]='this.options'>
+      </ion-calendar>
+    </div>
+    <div class="footerCalendar">
+      <div>
+        {{this.labelTerminal}}
+      </div>
+    </div>
+  
 </ion-content>
