@@ -1,5 +1,10 @@
 page-calendar2 {
-    
+    .scroll-content{
+        overflow-y: hidden;
+    }
+    .bold{
+        font-family: 'neo_sansbold';
+    }
     ion-calendar-month .primary button.days-btn small, ion-calendar-month .primary .days .marked{
         background-color: color($colors,'primary');
         p{
@@ -19,23 +24,55 @@ page-calendar2 {
     ion-calendar {
         padding:  0px;
         height: 50vh;
+        &.animar{
+            animation: fadeIn 300ms ease-in-out;
+        }
     }
     ion-calendar-month .days {
-        height: 25px;
+        height: 10vw;
     }
     ion-calendar-month button.days-btn {
         border-radius: 30px;
-        width: 25px;
+        width: 10vw;
         display: block;
         margin: 0 auto;
         padding: 0;
-        height: 25px;
+        height: 10vw;
         background-color: transparent;
         position: relative;
         z-index: 2;
     }
+    ion-calendar .title {
+        height: 10vw;
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+    }
+    ion-calendar .title .switch-btn {
+        width: 100%;
+        text-align: center;
+        line-height: 32px;
+        color: black;
+        @include rfs(3rem);
+        
+    }
+
+    ion-calendar-week .week-title.transparent {
+        height: 10vw;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+    
     .main-content {
+        background-color: #EFEFEF;
         .innerContainer {
+            background-color: white;
           height: 10%;
           width: 100%;
           display: flex;
@@ -46,6 +83,7 @@ page-calendar2 {
         //   padding-bottom: 76px;
     
           .headerCalendar{
+            // background-color: white;
             height: 100%;
             width: 95%;
             z-index: 111111;
@@ -56,6 +94,7 @@ page-calendar2 {
             align-items: center;
     
             .iconContainer{
+            //   background-color: white; 
               height: 46px;
               width: 46px;
               position: relative;
@@ -84,6 +123,126 @@ page-calendar2 {
               }
             }
           }
+        }
+        .bodyCalendar{
+            top: 3%;
+            position: absolute;
+            padding: 0px 15px;
+            background-color: white;
+            border-radius: 0px 0px 25px 25px;
+        }
+        .footerCalendar{
+            top: 48vh;
+            position: relative;
+            height: calc(52vh - 10%);
+            width: 100%;
+            background-color: #EFEFEF;
+            // border-radius: 25px 25px 0px 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            
+            // padding: 15px 0px;
+            ion-scroll{                  
+                height: 100%;
+                width: 100%;
+                display: flex;
+               
+                .scroll-content{
+                    padding: 0px 6px;
+                    // height: 100%;
+                    // width: 100%;
+                    .createContainer{
+                        height: 56px;
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        // padding: 15px;
+                        .createButton{
+                            height: 70%;
+                            width: 25%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 15px;
+                            color: white;
+                            @include rfs(1.2rem);
+                            font-weight: 500;
+                            &.huaca{
+                                color: #3D3D3D;
+                            }
+                            &.tanda{
+                                background-color: rgb(220, 44, 51);
+                                border-radius: 25px;
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+            .huacaItem{
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                min-height: 76px;
+                width: 100%;
+                @include rfs(1.5rem);
+                position: relative;
+                color: #636363;
+                .huacaImgContainer{
+                    
+                    
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        height: 56px;
+                        width: 56px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                 
+                }
+                .huacaMidContainer{
+                   
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    
+                    .darker{
+                        color:#3d3d3d;
+                    }
+                }
+                .huacaLastContainer{
+                   
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-end;
+                    .type{
+                        // position: absolute;
+                        top:8px;
+                        @include rfs(1rem);
+                        // background-color: white;
+                        border-radius: 15px;
+                        padding: 1px 10px;
+                        color: color($colors,'primary')
+                    }
+                    .data{
+                        display: flex;
+                        flex-direction: column;
+                        text-align: end;
+                        .title{
+                            @include rfs(1.2rem);
+                        }
+                    }
+                }
+             
+            }
         }
     }
 }

@@ -13,3 +13,4 @@ import { CalendarModule } from 'ion2-calendar';
   ],
 })
 export class Calendar2PageModule {}
+ 

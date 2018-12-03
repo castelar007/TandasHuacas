@@ -2,19 +2,51 @@
   <div class="innerContainer">
     <div class="headerCalendar">
       <div class="iconContainer" (click)='this.navCtrl.pop()'>
-        <ion-icon style="color: white; font-size:56px;" name='close'></ion-icon>
+        <ion-icon style="color: white; font-size:56px;" name='ios-close'></ion-icon>
       </div>
     </div>
   </div>
 
     <div class="bodyCalendar">
-      <ion-calendar [(ngModel)]="date" (onSelect)="onSelect($event)" [type]="type" [format]="'YYYY-MM-DD'" [options]='this.options'>
+      <ion-calendar id='calendario' [(ngModel)]="date"
+                    (onSelect)="onSelect($event)" 
+                    (monthChange)="onMonthChange($event)"
+                    [type]="type" 
+                    [format]="'YYYY-MM-DD'" 
+                    [options]='this.options' >
       </ion-calendar>
     </div>
     <div class="footerCalendar">
-      <div>
-        {{this.labelTerminal}}
+      <ion-scroll  scrollY='true'> 
+      <div *ngFor='let huaca of huacasArray' class="huacaItem" (click)='this.baseMethod.modaLauncher(huacaDetail,huaca)'>
+        <div class="huacaImgContainer">
+          <img [src]="huaca.img" alt="">
+        </div>  
+        <div class="huacaMidContainer">
+          <span class="bold">{{huaca.name}}</span>
+          <span class="darker">{{huaca.amount|currency:'L '}}</span>
+        </div>
+        <div class="huacaLastContainer">
+          <div class="type">
+            <span>{{huaca.type}}</span>
+          </div>
+          <div class="data">
+            <span class="bold title">Participantes:88</span>
+            <span>{{huaca.fee|currency:'L '}}</span>
+          </div>
+        </div>
       </div>
+      <div class="createContainer">
+        <div class="createButton huaca" >
+           <span>+</span>
+           <span>Huaca</span>  
+        </div>
+        <div class="createButton tanda" >
+          <span>+</span>
+          <span>Tanda</span>
+        </div>
+      </div>
+    </ion-scroll>
     </div>
   
 </ion-content>
