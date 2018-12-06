@@ -5,15 +5,14 @@ page-calendar2 {
     .bold{
         font-family: 'neo_sansbold';
     }
-    ion-calendar-month .primary button.days-btn small, ion-calendar-month .primary .days .marked{
-        background-color: color($colors,'primary');
-        p{
-            color: white;
-        }
-    }
+    // ion-calendar-month .primary button.days-btn small, ion-calendar-month .primary .days .marked{
+    //     background-color: color($colors,'primary');
+    //     p{
+    //         color: white;
+    //     }
+    // }
     ion-calendar-month .primary .days .on-selected, ion-calendar-month .primary .startSelection button.days-btn, ion-calendar-month .primary .endSelection button.days-btn {
-        background-color: color($colors,'secondary');
-        color: #fff;
+        background-color: color($colors,'primary') !important;
     }
     ion-calendar-month .primary .days .today  {
         background-color: gray;
@@ -23,27 +22,36 @@ page-calendar2 {
     }
     ion-calendar {
         padding:  0px;
-        height: 50vh;
+        // height: 50vh;
+        background-color: white;
+        border-radius: 0px 0px 25px 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        // align-items: center;
         &.animar{
             animation: fadeIn 300ms ease-in-out;
         }
     }
+    ion-calendar-month .days-box {
+        padding: 0rem 0.5rem;
+    }
     ion-calendar-month .days {
-        height: 10vw;
+        height: 8vw;
     }
     ion-calendar-month button.days-btn {
         border-radius: 30px;
-        width: 10vw;
+        width: 8vw;
         display: block;
         margin: 0 auto;
         padding: 0;
-        height: 10vw;
+        height: 8vw;
         background-color: transparent;
         position: relative;
         z-index: 2;
     }
     ion-calendar .title {
-        height: 10vw;
+        height: 15vw;
         width: 100%;
         padding: 0;
         display: flex;
@@ -52,8 +60,8 @@ page-calendar2 {
        
     }
     ion-calendar .title .switch-btn {
-        width: 100%;
-        text-align: center;
+        width: 90%;
+        text-align: start;
         line-height: 32px;
         color: black;
         @include rfs(3rem);
@@ -71,6 +79,13 @@ page-calendar2 {
     
     .main-content {
         background-color: #EFEFEF;
+        .globalContainer{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            height: 100%;
+            width: 100%;
+
         .innerContainer {
             background-color: white;
           height: 10%;
@@ -79,6 +94,8 @@ page-calendar2 {
           flex-direction: column;
           align-items: center;
           justify-content: space-between;
+          position: absolute;
+          margin-top: 15px;
         //   padding-top: 15px;
         //   padding-bottom: 76px;
     
@@ -91,7 +108,7 @@ page-calendar2 {
             display: flex;
             justify-content: flex-end;
             // margin-right: 15px;
-            align-items: center;
+            align-items: flex-start;
     
             .iconContainer{
             //   background-color: white; 
@@ -125,14 +142,17 @@ page-calendar2 {
           }
         }
         .bodyCalendar{
-            top: 3%;
-            position: absolute;
-            padding: 0px 15px;
+            // top: 3%;
+            position: relative;
+            padding: 15px;
             background-color: white;
             border-radius: 0px 0px 25px 25px;
+            
+            // flex-grow: 1;
+            
         }
         .footerCalendar{
-            top: 48vh;
+            // top: 3%;
             position: relative;
             height: calc(52vh - 10%);
             width: 100%;
@@ -142,26 +162,95 @@ page-calendar2 {
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            
+            flex-grow: 1;
             // padding: 15px 0px;
             ion-scroll{                  
                 height: 100%;
                 width: 100%;
                 display: flex;
-               
+                &.animar{
+                    animation: fadeIn 300ms ease-in-out;
+                }
                 .scroll-content{
                     padding: 0px 6px;
                     // height: 100%;
                     // width: 100%;
                     .createContainer{
-                        height: 56px;
+                        position: relative;
+                        height: 76px;
                         width: 100%;
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         // padding: 15px;
+                        .plusButton{
+                            height: 55%;
+                            width: calc(76px*0.55);
+                            background-color: color($colors,'primary');
+                            border-radius: 25px;
+                            position: absolute;
+                            // border: 3px solid white;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            transition:  width  250ms 200ms ease-in-out ,transform 250ms 250ms ease-in-out,opacity 100ms ease-in-out;
+                            
+                            z-index: 111;
+                            &.active{
+                                transition: transform 250ms ease-in-out, width 250ms 100ms ease-in-out,opacity 100ms 250ms ease-in-out;
+                                transform: translateX(50%);
+                                width: 25%;
+                                border-radius: 25px;
+                               
+                                pointer-events: none;
+                                // 
+                                &::after{
+                                    
+                                    pointer-events: none;
+                                   
+                                    height: 100%;
+                                    width: 100%;
+                                    background: color($colors,'primary');
+                                    border-radius: 25px;
+                                    z-index: 111;
+                                    transition: width 250ms 100ms ease-in-out ,height 250ms 125ms ease-in-out,background-color 250ms ;
+                                }
+                                &::before{
+                                    height: 100%;
+                                    width: 150%;
+                                    background-color: white;
+                                    border-radius: 25px;
+                                    
+                                    
+                                    transition:  transform 250ms ease-in-out, width 250ms 100ms ease-in-out ,height 250ms 100ms;
+                                    transform: translateX(-50%);
+                                    z-index: 11;
+                                }
+                            }
+                            &::after{
+                                content: '';
+                                position: absolute;
+                                height: 3px;
+                                width: 50%;
+                                background-color: white;
+                                border-radius: 25px;
+                                z-index: 111;
+                                transition:  width 250ms  ease-in-out ,height 250ms 100ms ease-in-out,background-color 250ms 250ms;
+                            }
+                            &::before{
+                                content: '';
+                                position: absolute;
+                                height: 50%;
+                                width: 3px;
+                                background-color: white;
+                                border-radius: 25px;
+                                transform: translateX(0%);
+                                transition: transform 250ms 250ms, width 250ms 200ms ,height 250ms 100ms ;
+                                z-index: 11;
+                            }
+                        }
                         .createButton{
-                            height: 70%;
+                            height: 55%;
                             width: 25%;
                             display: flex;
                             flex-direction: column;
@@ -169,14 +258,23 @@ page-calendar2 {
                             justify-content: center;
                             border-radius: 15px;
                             color: white;
-                            @include rfs(1.2rem);
+                            @include rfs(1.7rem);
                             font-weight: 500;
+                            opacity: 0;
+                            pointer-events: none;
+                            transition: opacity 300ms 200ms;
+                            z-index: 1111;
+                            &.active{
+                                opacity: 1;
+                                pointer-events: unset;
+                                transition: opacity 300ms 250ms;
+                            }
                             &.huaca{
                                 color: #3D3D3D;
                             }
                             &.tanda{
-                                background-color: rgb(220, 44, 51);
-                                border-radius: 25px;
+                                // background-color: rgb(220, 44, 51);
+                                // border-radius: 25px;
                                 color: white;
                             }
                         }
@@ -229,7 +327,7 @@ page-calendar2 {
                         @include rfs(1rem);
                         // background-color: white;
                         border-radius: 15px;
-                        padding: 1px 10px;
+                        // padding: 1px 10px;
                         color: color($colors,'primary')
                     }
                     .data{
@@ -244,5 +342,5 @@ page-calendar2 {
              
             }
         }
-    }
+    }}
 }

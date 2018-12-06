@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BaseMethodsProvider } from '../../providers/base-methods/base-methods';
 import * as moment from 'moment';
@@ -16,13 +16,14 @@ import { HuacaDetailPage } from '../huaca-detail/huaca-detail';
   templateUrl: 'calendar2.html',
 })
 export class Calendar2Page {
+  toggle = false;
   huacasArray=[];
   date: string;
   type: 'string'; 
   options// 'string' | 'js-date' | 'moment' | 'time' | 'object'
   daysConfig = [];
   huacaDetail = HuacaDetailPage;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public baseMethod:BaseMethodsProvider) {
+  constructor(public zone :NgZone,public navCtrl: NavController, public navParams: NavParams,public baseMethod:BaseMethodsProvider) {
   }
 
   ionViewDidLoad() {
@@ -38,7 +39,7 @@ export class Calendar2Page {
       showMonthPicker:false,
       monthFormat:'MMMM YYYY',
       daysConfig:this.daysConfig,
-   
+      
     }
     
   }
@@ -47,7 +48,12 @@ export class Calendar2Page {
     let pickeDate = new Date($event.time);
     this.huacasArray = this.baseMethod.huacaFinder(pickeDate);
     console.log(this.huacasArray);
-    
+    // let element = document.getElementById('scrollHuacaList');
+    // if(this.huacasArray.length != 0){
+    //     element.classList.remove("animar");
+    //     void element.offsetWidth;
+    //     element.classList.add("animar");
+    // }
   }
   onMonthChange($event){
     // console.log($event);
@@ -57,5 +63,10 @@ export class Calendar2Page {
           element.classList.add("animar");
     
   }
-
+  toggleAddHuaca(){
+      this.toggle = !this.toggle;
+      setTimeout(() => {
+        this.toggle = !this.toggle;
+      }, 3000);
+   }
 }

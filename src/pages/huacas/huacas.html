@@ -80,7 +80,7 @@
       </div>
       <div class="allRoundContainer">
         <div class="roundContainer" *ngFor='let item of list' (click)='roundClick(item)'>
-          <div [class.opacityRoundContainer]='item.isActive' [style.background-color]="item.color"></div>
+          <div [class.opacityRoundContainer]='item.isActive' [style.background-color]="item.color" ></div>
           <img [src]="item.img" alt="">
         </div>
       </div>

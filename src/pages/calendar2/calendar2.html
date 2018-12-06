@@ -1,4 +1,5 @@
 <ion-content class="main-content">
+  <div class="globalContainer">
   <div class="innerContainer">
     <div class="headerCalendar">
       <div class="iconContainer" (click)='this.navCtrl.pop()'>
@@ -17,7 +18,7 @@
       </ion-calendar>
     </div>
     <div class="footerCalendar">
-      <ion-scroll  scrollY='true'> 
+      <ion-scroll id='scrollHuacaList'  scrollY='true'> 
       <div *ngFor='let huaca of huacasArray' class="huacaItem" (click)='this.baseMethod.modaLauncher(huacaDetail,huaca)'>
         <div class="huacaImgContainer">
           <img [src]="huaca.img" alt="">
@@ -37,16 +38,19 @@
         </div>
       </div>
       <div class="createContainer">
-        <div class="createButton huaca" >
-           <span>+</span>
+        <div class="plusButton" [class.active]='this.toggle' (click)='toggleAddHuaca()'>
+          
+        </div>
+        <div class="createButton huaca" [class.active]='this.toggle'>
+           <span>Crear</span>
            <span>Huaca</span>  
         </div>
-        <div class="createButton tanda" >
-          <span>+</span>
+        <div class="createButton tanda" [class.active]='this.toggle'>
+          <span>Crear</span>
           <span>Tanda</span>
         </div>
       </div>
     </ion-scroll>
     </div>
-  
+  </div>
 </ion-content>

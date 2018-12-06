@@ -23,10 +23,10 @@ export class HuacaDetailPage {
       {img:22,name:'Maria'},
       {img:33,name:'Julia'},
       {img:44,name:'Carlos'},
-      // {img:55,name:'Mickel'},
-      // {img:11,name:'Aria'},
-      // {img:22,name:'Vic'},
-      // {img:33,name:'Zoe'},
+      {img:55,name:'Mickel'},
+      {img:11,name:'Aria'},
+      {img:22,name:'Vic'},
+      {img:33,name:'Zoe'},
         ];
   constructor(public zone: NgZone,public params:NavParams,public navCtrl: NavController, public navParams: NavParams) {
   }
