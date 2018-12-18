@@ -6,6 +6,7 @@ import { HomePage } from '../home/home';
 import { HuacasPage } from '../huacas/huacas';
 import { TandasPage } from '../tandas/tandas';
 import { SettingsPage } from '../settings/settings';
+import { StatusBar } from '@ionic-native/status-bar';
 
 @Component({
   selector: 'tabs-page',
@@ -18,7 +19,11 @@ export class TabsPage {
   tab3Root = TandasPage;
   tab4Root = SettingsPage;
 
-  constructor() {
+  constructor(public statusBar:StatusBar) {
 
+  }
+  ionViewDidLoad(){
+    this.statusBar.styleDefault();
+    this.statusBar.overlaysWebView(false);
   }
 }

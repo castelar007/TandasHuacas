@@ -104,6 +104,7 @@ page-huacas {
 
             &.shared {
               background-color: rgba(255, 255, 255, 0.3);
+             
             }
           }
         }
@@ -150,6 +151,7 @@ page-huacas {
           align-items: flex-start;
           flex-direction: column;
           padding-left: 30px;
+          
 
           .amount {
             font-size: 2rem;
@@ -375,6 +377,7 @@ page-huacas {
               height: 100%;
               position: absolute;
               width: 100%;
+              opacity: 0.5;
             }
           }
         }

@@ -38,14 +38,22 @@ export class HuacasPage {
 
   
   ionViewWillLoad() {
+    
     this.nuevaSelectedHuaca = this.list[0];
     this.list.forEach(element => {
       this.huacaStatus.push(element.huacaStatus);
-      this.huacaNames. push(element.name);
-      this.huacaColors. push(element.color);
-      this.huacaHovers. push(element.hover);
+      this.huacaNames.push(element.name);
     });
-    console.log('ionViewDidLoad HuacasPage');
+    let huacaLenght = this.list.length;
+    console.log(huacaLenght);
+    
+    for (let i = 0; i <huacaLenght; i++) {
+      this.huacaColors.push('hsl('+ (((i+1)*360/huacaLenght)-1) +',65%,60%)');
+      this.huacaHovers.push('hsl('+ (((i+1)*360/huacaLenght)-1) +',65%,50%)'); 
+    }
+    console.log(this.huacaColors);
+    console.log(this.huacaHovers);
+    
     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
      
       type: 'doughnut',

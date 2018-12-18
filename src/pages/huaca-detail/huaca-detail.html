@@ -43,13 +43,17 @@
     </div>
     <div class="body">
       <div class="contactNumber">Participantes:{{this.list.length}}</div>
+     
       <div class="circleContainer">
         <div class="circle">
-          <div class="circleLabel">
-            <span> L.8,888,888.88 </span>
-            <span> L.8,888.88 </span>
+            <div class="circleLabel">
+                <span> L.8,888,888.88 </span>
+                <span> L.8,888.88 </span>
+              </div>
+          <div class="wave" [style.background-image]="'url('+ this.huaca?.img +') ' ">
+            <div class="waveBefore"></div>
+            <div class="waveAfter"></div>
           </div>
-          <div class="wave" [style.background-image]="'url('+ this.huaca?.img +') ' "></div>
         </div>
       </div>
       <div class="huacaData">

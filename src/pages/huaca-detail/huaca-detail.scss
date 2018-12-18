@@ -310,8 +310,9 @@ page-huaca-detail {
           display: flex;
           justify-content: center;
           align-items: center;
-
+          
           .circle {
+            z-index: 1111;
             position: relative;
             // top: 50%;
             // left:50%;
@@ -323,56 +324,61 @@ page-huaca-detail {
             box-shadow: 0 0 0 5px #fff;
             border-radius: 50%;
             overflow: hidden;
-          }
-          .circleLabel{
-            position: absolute;
-            z-index: 11111;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            width: 100%;
-            color: white;
-            @include rfs(2rem);
-            font-weight: 500;
-          }
-          .wave {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            // background: rgba(255,255,255,1);
-            // background-image: url("/assets/imgs/3.jpg");
-            background-size: cover;
-            border-radius: 50%;
-
-            // box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
-            &::after,
-            &::before {
-              content: '';
+            .circleLabel{
               position: absolute;
-              width: 200%;
-              height: 200%;
-              top: 200%;
-              left: 50%;
-              transform: translate(-50%, -75%);
-              background: #000;
+              z-index: 9999;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-around;
+              align-items: center;
+              width: 100%;
+              color: white;
+              @include rfs(2rem);
+              font-weight: 500;
+              span{
+                z-index: 11111;
+              }
             }
-
-            &::before {
-              border-radius: 45%;
-              background: rgba(215, 39, 45, 0.7);
-              animation: animate 10s linear infinite;
-            }
-
-            &::after {
-              border-radius: 40%;
-              background: rgba(215, 39, 45, 0.5);
-              // background: rgba(255,255,255,0.5);
-              // border: 1px solid rgba(215,39,45,1);
-              animation: animate 15s linear infinite;
+            .wave {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              // background: rgba(255,255,255,1);
+              // background-image: url("/assets/imgs/3.jpg");
+              background-size: cover;
+              border-radius: 50%;
+  
+              // box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+              .waveBefore,
+              .waveAfter {
+                // content: '';
+                position: absolute;
+                width: 200%;
+                height: 200%;
+                top: 200%;
+                left: 50%;
+                transform: translate(-50%, -75%);
+                background: #000;
+              }
+  
+              .waveBefore {
+                border-radius: 45%;
+                background: rgba(215, 39, 45, 0.7);
+                animation: animate 10s linear infinite;
+              }
+  
+              .waveAfter {
+                border-radius: 40%;
+                background: rgba(215, 39, 45, 0.5);
+                // background: rgba(255,255,255,0.5);
+                // border: 1px solid rgba(215,39,45,1);
+                animation: animate 15s linear infinite;
+              }
             }
           }
+         
+         
         }
 
       }
